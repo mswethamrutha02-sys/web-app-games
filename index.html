@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games Hub - Play Online Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Games Hub</h1>
+            <p>Play fun games online!</p>
+        </header>
+
+        <!-- Home Screen -->
+        <div id="home-screen" class="screen active">
+            <div class="games-grid">
+                <div class="game-card" onclick="startGame('tictactoe')">
+                    <div class="game-icon">❌⭕</div>
+                    <h2>Tic Tac Toe</h2>
+                    <p>Classic 3x3 strategy game</p>
+                </div>
+                <div class="game-card" onclick="startGame('memory')">
+                    <div class="game-icon">🧠</div>
+                    <h2>Memory Match</h2>
+                    <p>Find matching pairs</p>
+                </div>
+                <div class="game-card" onclick="startGame('rps')">
+                    <div class="game-icon">✂️</div>
+                    <h2>Rock Paper Scissors</h2>
+                    <p>Beat the computer</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tic Tac Toe Game -->
+        <div id="tictactoe-screen" class="screen">
+            <div class="game-header">
+                <button class="back-btn" onclick="goHome()">← Back</button>
+                <h2>Tic Tac Toe</h2>
+                <div class="score">You: <span id="ttt-wins">0</span> | Computer: <span id="ttt-losses">0</span></div>
+            </div>
+            <div class="game-status" id="ttt-status">Your turn (X)</div>
+            <div class="tictactoe-board">
+                <div class="cell" onclick="tttPlay(0)"></div>
+                <div class="cell" onclick="tttPlay(1)"></div>
+                <div class="cell" onclick="tttPlay(2)"></div>
+                <div class="cell" onclick="tttPlay(3)"></div>
+                <div class="cell" onclick="tttPlay(4)"></div>
+                <div class="cell" onclick="tttPlay(5)"></div>
+                <div class="cell" onclick="tttPlay(6)"></div>
+                <div class="cell" onclick="tttPlay(7)"></div>
+                <div class="cell" onclick="tttPlay(8)"></div>
+            </div>
+            <button class="reset-btn" onclick="resetTicTacToe()">New Game</button>
+        </div>
+
+        <!-- Memory Match Game -->
+        <div id="memory-screen" class="screen">
+            <div class="game-header">
+                <button class="back-btn" onclick="goHome()">← Back</button>
+                <h2>Memory Match</h2>
+                <div class="score">Matches: <span id="memory-matches">0</span>/6</div>
+            </div>
+            <div class="game-status" id="memory-status">Find matching pairs!</div>
+            <div class="memory-board" id="memory-board"></div>
+            <button class="reset-btn" onclick="resetMemory()">New Game</button>
+        </div>
+
+        <!-- Rock Paper Scissors Game -->
+        <div id="rps-screen" class="screen">
+            <div class="game-header">
+                <button class="back-btn" onclick="goHome()">← Back</button>
+                <h2>Rock Paper Scissors</h2>
+                <div class="score">You: <span id="rps-wins">0</span> | Computer: <span id="rps-losses">0</span></div>
+            </div>
+            <div class="game-status" id="rps-status">Make your choice!</div>
+            <div class="rps-container">
+                <div class="rps-choices">
+                    <button class="rps-choice" onclick="playRPS('rock')">🪨 Rock</button>
+                    <button class="rps-choice" onclick="playRPS('paper')">📄 Paper</button>
+                    <button class="rps-choice" onclick="playRPS('scissors')">✂️ Scissors</button>
+                </div>
+                <div class="rps-result">
+                    <div>
+                        <p>You chose:</p>
+                        <div id="rps-player" class="rps-display">-</div>
+                    </div>
+                    <div>
+                        <p>Computer chose:</p>
+                        <div id="rps-computer" class="rps-display">-</div>
+                    </div>
+                </div>
+            </div>
+            <button class="reset-btn" onclick="resetRPS()">Reset Score</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
